@@ -1,0 +1,16 @@
+# TimeSigma's approved point-wise raw variant of the scikit-learn 1.9.0 API.
+# n_jobs=1 and random_state=1 are explicit protocol choices, not library defaults.
+[Data_Params]
+preprocess = "raw"
+diff_order = 0
+
+[Model_Params.Default]
+n_estimators = 100
+max_samples = "auto"
+max_features = 1.0
+bootstrap = false
+warm_start = false
+n_jobs = 1
+verbose = 0
+random_state = 1
+contamination = "auto"

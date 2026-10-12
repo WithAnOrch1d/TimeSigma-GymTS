@@ -1,0 +1,24 @@
+{
+  "format": "timesigma-scientific-assets-1",
+  "roots": [
+    "runs/agent-memory",
+    "runs/profiles",
+    "runs/aiops-continuation-20260921",
+    "runs/research-final-20260921",
+    "runs/research-final-20260921-runtime-repair",
+    "runs/research-continuation-20260921",
+    "runs/research-credit-recovery-20260922",
+    "runs/research-identity-recovery-20260922",
+    "docs/demo/TimeSigma_AIOPS_Leaderboard_3Schema.html",
+    "docs/operations/server-storage-cleanup-20260921/provenance-metadata.tar.xz"
+  ],
+  "file_count": 53596,
+  "logical_bytes": 67466093277,
+  "unique_inode_bytes": 66902013253,
+  "note": "Paths inside immutable historical JSON retain original provenance; do not execute those historical launch files. No credentials or environments are included.",
+  "manifest_sha256": "945f7b4571973a5fd567549e07464f16c4136aba0d0e4219040e814bb8a25a38",
+  "manifest_bytes": 12905677,
+  "components": 9561,
+  "research_steps": 407,
+  "release_status": "INVENTORIED_NOT_PACKED_OR_UPLOADED"
+}

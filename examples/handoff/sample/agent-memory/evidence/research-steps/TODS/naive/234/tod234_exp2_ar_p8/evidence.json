@@ -1,0 +1,89 @@
+{
+  "action": {
+    "after": 8,
+    "before": 16,
+    "dimension": "window",
+    "parameter": "p"
+  },
+  "after_value": 0.73700543056633,
+  "artifact": {
+    "artifact_path": "best.pt",
+    "artifact_type": "torch_state_dict",
+    "score_source": "selected_artifact",
+    "selection_status": "available"
+  },
+  "baseline_evidence_id": "component/AR/naive/TODS/234",
+  "baseline_pipeline": {
+    "ensemble_ref": null,
+    "method": "AR",
+    "operators": [],
+    "resolved_configuration": {
+      "Data_Params": {
+        "diff_order": 1,
+        "preprocess": "min-max"
+      },
+      "Model_Params": {
+        "batch_size": 128,
+        "epochs": 100,
+        "lr": 0.001,
+        "p": 16
+      }
+    }
+  },
+  "before_value": 0.7199999999999994,
+  "candidate_pipeline": {
+    "ensemble_ref": null,
+    "method": "AR",
+    "operators": [],
+    "resolved_configuration": {
+      "Data_Params": {
+        "diff_order": 1,
+        "preprocess": "min-max"
+      },
+      "Model_Params": {
+        "batch_size": 128,
+        "epochs": 100,
+        "lr": 0.001,
+        "p": 8
+      }
+    }
+  },
+  "edge_delta": 0.017005430566330637,
+  "evidence_id": "research-step/TODS/naive/234/tod234_exp2_ar_p8",
+  "kind": "research_step",
+  "metrics": {
+    "delay-reduced-length-auprc": 0.7626899190397775,
+    "delay-reduced-length-f1": 0.8571428571428565,
+    "event-wise-auprc": 0.847136570694263,
+    "event-wise-f1": 0.8888888888888882,
+    "point-wise-auprc": 0.8165289143597966,
+    "point-wise-f1": 0.73700543056633,
+    "reduced-length-auprc": 0.8362669691220622,
+    "reduced-length-f1": 0.8965517241379305
+  },
+  "research_decision": {
+    "diagnosis": {
+      "reason": "Shrinking the AR window from p=16 to p=8 (all else frozen: diff_order=1, min-max, batch_size=128, epochs=100, lr=0.001) improved target point-wise F1 from 0.7200 to 0.7370 (delta +0.0170). The hypothesis that the differenced curve's exploitable predictive structure is more local than the incumbent's p=16 window is supported; combined with the prior p=32 refutation, the window-vs-F1 relationship is monotone decreasing over {8,16,32}, favoring shorter windows.",
+      "verdict": "supported"
+    },
+    "hypothesis": "Baseline chosen: component/AR/naive/TODS/234 is the initial baseline and current global best (point-wise-f1 0.7200, AR diff_order=1/min-max/p=16). Prior step: widening to p=32 degraded point-wise F1 to 0.6897, so the differenced series' exploitable predictive structure favors the shorter-window side of p=16. Candidate rationale: shrinking the AR window to p=8 (all else frozen: diff_order=1, min-max, batch_size=128, epochs=100, lr=0.001) is a new untested pipeline that tests whether a more local autoregressive structure further improves point-wise F1 over the incumbent.",
+    "next_action": {
+      "dimension": "window",
+      "parameter": null,
+      "value": 4
+    },
+    "next_action_rationale": "Point-wise F1 improved monotonically as the AR window shrank (32→0.6897, 16→0.7200, 8→0.7370), so the window dimension is not yet bracketed on the low side. p=4 is the untested next probe in the same direction; if it degrades, p=8 is locally optimal for the window dimension and preprocessing (z-score vs min-max on the left-skewed curve) becomes the next dimension to explore."
+  },
+  "target_metric": "point-wise-f1",
+  "task": {
+    "dataset": "TODS",
+    "schema": "naive",
+    "unit": {
+      "curve": "234",
+      "held_out_curves": [],
+      "training_curves": [
+        "234"
+      ]
+    }
+  }
+}

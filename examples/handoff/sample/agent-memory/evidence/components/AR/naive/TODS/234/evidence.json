@@ -1,0 +1,48 @@
+{
+  "artifact": {
+    "artifact_path": "best.pt",
+    "artifact_type": "torch_state_dict",
+    "score_source": "selected_artifact",
+    "selection_status": "available"
+  },
+  "evidence_id": "component/AR/naive/TODS/234",
+  "kind": "component",
+  "metrics": {
+    "delay-reduced-length-auprc": 0.5844229180786134,
+    "delay-reduced-length-f1": 0.6101694915254232,
+    "event-wise-auprc": 0.874989936928272,
+    "event-wise-f1": 0.8461538461538455,
+    "point-wise-auprc": 0.7120885883321457,
+    "point-wise-f1": 0.7199999999999994,
+    "reduced-length-auprc": 0.8456917026892514,
+    "reduced-length-f1": 0.8571428571428565
+  },
+  "pipeline": {
+    "ensemble_ref": null,
+    "method": "AR",
+    "operators": [],
+    "resolved_configuration": {
+      "Data_Params": {
+        "diff_order": 1,
+        "preprocess": "min-max"
+      },
+      "Model_Params": {
+        "batch_size": 128,
+        "epochs": 100,
+        "lr": 0.001,
+        "p": 16
+      }
+    }
+  },
+  "task": {
+    "dataset": "TODS",
+    "schema": "naive",
+    "unit": {
+      "curve": "234",
+      "held_out_curves": [],
+      "training_curves": [
+        "234"
+      ]
+    }
+  }
+}

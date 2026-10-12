@@ -1,0 +1,54 @@
+{
+  "artifact": {
+    "artifact_path": "estimator.pkl",
+    "artifact_type": "fitted_estimator",
+    "score_source": "fitted_estimator",
+    "selection_status": "not_applicable"
+  },
+  "evidence_id": "component/OCSVM/naive/TODS/234",
+  "kind": "component",
+  "metrics": {
+    "delay-reduced-length-auprc": 0.0065905051774700334,
+    "delay-reduced-length-f1": 0.018433179723502065,
+    "event-wise-auprc": 0.00457196491559289,
+    "event-wise-f1": 0.013059701492537289,
+    "point-wise-auprc": 0.26522525786175183,
+    "point-wise-f1": 0.472040668119099,
+    "reduced-length-auprc": 0.01210780052220103,
+    "reduced-length-f1": 0.032727272727272674
+  },
+  "pipeline": {
+    "ensemble_ref": null,
+    "method": "OCSVM",
+    "operators": [],
+    "resolved_configuration": {
+      "Data_Params": {
+        "diff_order": 0,
+        "preprocess": "z-score"
+      },
+      "Model_Params": {
+        "cache_size": 200,
+        "coef0": 0.0,
+        "degree": 3,
+        "gamma": "auto",
+        "kernel": "rbf",
+        "max_iter": -1,
+        "nu": 0.5,
+        "shrinking": true,
+        "tol": 0.001,
+        "verbose": false
+      }
+    }
+  },
+  "task": {
+    "dataset": "TODS",
+    "schema": "naive",
+    "unit": {
+      "curve": "234",
+      "held_out_curves": [],
+      "training_curves": [
+        "234"
+      ]
+    }
+  }
+}

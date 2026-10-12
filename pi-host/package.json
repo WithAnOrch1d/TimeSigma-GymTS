@@ -1,0 +1,29 @@
+{
+  "name": "@timesigma/pi-host",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "auth:import-codex": "npm run build && node dist/configure-auth.js",
+    "build": "tsc -p tsconfig.build.json",
+    "model": "npm run build && env -u NODE_TLS_REJECT_UNAUTHORIZED node dist/model-cli.js",
+    "preflight": "npm run build && env -u NODE_TLS_REJECT_UNAUTHORIZED node --env-file-if-exists=.env dist/preflight.js",
+    "recommend": "npm run build && env -u NODE_TLS_REJECT_UNAUTHORIZED node --env-file-if-exists=.env dist/recommendation-cli.js",
+    "research": "npm run build && env -u NODE_TLS_REJECT_UNAUTHORIZED node --env-file-if-exists=.env dist/research-cli.js",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "check": "npm run typecheck && npm run test && npm run build"
+  },
+  "dependencies": {
+    "@earendil-works/pi-agent-core": "0.82.1",
+    "@earendil-works/pi-ai": "0.82.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.12.4",
+    "typescript": "5.9.3",
+    "vitest": "4.1.9"
+  }
+}

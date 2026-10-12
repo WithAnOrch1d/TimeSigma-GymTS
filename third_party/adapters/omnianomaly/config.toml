@@ -1,0 +1,27 @@
+# EASYTSAD_CANONICAL_ADAPTATION; fixed official OmniAnomaly core, NAIVE only.
+[Data_Params]
+preprocess = "min-max"
+diff_order = 0
+
+[Model_Params.Default]
+x_dim = 1
+z_dim = 3
+window_length = 100
+rnn_num_hidden = 500
+dense_dim = 500
+use_connected_z_q = true
+use_connected_z_p = true
+posterior_flow_type = "nf"
+nf_layers = 20
+std_epsilon = 0.0001
+l2_reg = 0.0001
+get_score_on_dim = false
+max_epoch = 10
+batch_size = 50
+test_batch_size = 50
+initial_lr = 0.001
+lr_anneal_epoch_freq = 40
+lr_anneal_factor = 0.5
+gradient_clip_norm = 10.0
+valid_step_freq = 100
+test_n_z = 1

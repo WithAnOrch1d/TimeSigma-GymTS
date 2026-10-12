@@ -1,0 +1,23 @@
+{
+  "curve": "234",
+  "facts": {
+    "difference_standard_deviation": 0.11464290250024967,
+    "dominant_frequency": 0.0002,
+    "excess_kurtosis": 0.5025698343219331,
+    "is_constant": false,
+    "lag1_autocorrelation": 0.9981400807865343,
+    "maximum": 10.571483641766038,
+    "mean": 7.446194700308569,
+    "median": 7.964297059014433,
+    "minimum": -1.0114327642804928,
+    "normalized_trend_slope": 2.5147292206227716,
+    "point_count": 5000,
+    "q25": 6.261101951782984,
+    "q75": 9.364476521760217,
+    "roughness": 0.02918730524694798,
+    "skewness": -1.0789107424699231,
+    "spectral_entropy": 0.28199051263898567,
+    "standard_deviation": 2.5692237211467788,
+    "trend_strength": 0.5271994253571235
+  }
+}

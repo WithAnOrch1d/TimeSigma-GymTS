@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "timesigma"
+version = "0.1.0"
+description = "An EasyTSAD-native agent method for metric-conditioned time-series anomaly detection."
+readme = "README.md"
+requires-python = ">=3.9,<3.13"
+dependencies = [
+    "numpy",
+    "packaging>=23,<27",
+    # EasyTSAD imports its VUS protocols eagerly but does not declare this dependency.
+    "statsmodels>=0.14,<0.15",
+    "toml>=0.10.2,<0.11",
+    "EasyTSAD @ git+https://github.com/CSTCloudOps/EasyTSAD.git@e7be92374a4543d7c52d6e34ef7047f4d6776be0",
+]
+
+[project.scripts]
+timesigma = "timesigma.cli:main"
+
+[project.optional-dependencies]
+matrix-profile = ["matrixprofile==1.1.10"]
+torch = ["torch==2.5.1", "torchinfo==1.8.0", "einops==0.8.1"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<10",
+    "tomli>=2,<3; python_version<'3.11'",
+    "uv==0.12.1",
+]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu121" }
+
+[[tool.uv.index]]
+name = "pytorch-cu121"
+url = "https://download.pytorch.org/whl/cu121"
+explicit = true
+
+[tool.setuptools.packages.find]
+include = ["timesigma*", "third_party", "third_party.adapters*", "third_party.runtimes*"]
+exclude = ["third_party.upstreams*"]
+
+[tool.setuptools.package-data]
+"timesigma.algorithms.isolation_forest" = ["config.toml"]
+"third_party.adapters.omnianomaly" = ["config.toml", "sources.json", "replay-compatibility.json"]
+"third_party.runtimes.omnianomaly" = ["requirements.txt", "conda-explicit.txt"]

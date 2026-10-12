@@ -1,0 +1,30 @@
+.venv/
+.runtimes/
+node_modules/
+dist/
+build/
+*.egg-info/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+/datasets/
+/runs/
+/Results/
+/Model_ckpt/
+pi-host/.artifacts/
+*.log
+.DS_Store
+
+# Keep only the small, explicitly included examples/handoff/sample artifacts.
+
+# Full scientific asset downloads/exports are Release files, not Git source.
+/assets/
+/release-assets/
+/work/
+*.tar.gz
+*.tar.gz.part-*

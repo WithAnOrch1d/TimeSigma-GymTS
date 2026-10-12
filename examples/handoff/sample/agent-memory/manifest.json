@@ -1,0 +1,27 @@
+{
+  "dataset_revisions": {
+    "NAB": "0c6dfa195a5af8ef75938bc1ca6b870e49c7b14a",
+    "NEK": "90d500007bd60ef87635b1671f6877a7a4e6301d",
+    "TODS": "0c6dfa195a5af8ef75938bc1ca6b870e49c7b14a",
+    "UCR": "0c6dfa195a5af8ef75938bc1ca6b870e49c7b14a",
+    "WSD": "0c6dfa195a5af8ef75938bc1ca6b870e49c7b14a",
+    "Yahoo": "0c6dfa195a5af8ef75938bc1ca6b870e49c7b14a"
+  },
+  "dataset_sources": {
+    "NAB": "https://github.com/CSTCloudOps/datasets.git",
+    "NEK": "https://github.com/CSTCloudOps/Dataset-for-TSAD.git",
+    "TODS": "https://github.com/CSTCloudOps/datasets.git",
+    "UCR": "https://github.com/CSTCloudOps/datasets.git",
+    "WSD": "https://github.com/CSTCloudOps/datasets.git",
+    "Yahoo": "https://github.com/CSTCloudOps/datasets.git"
+  },
+  "easytsad_revision": "e7be92374a4543d7c52d6e34ef7047f4d6776be0",
+  "execution_assumptions": {
+    "pipeline_start": "schema_raw_train_values",
+    "preprocess_and_diff_order": "pipeline_facts"
+  },
+  "profile_definition": "raw_train_curve_statistics",
+  "seed": 1,
+  "store": "agent-memory",
+  "zero_shot_membership": "zero-shot-membership.json"
+}

@@ -1,0 +1,28 @@
+{
+  "artifact_path": "best.pt",
+  "artifact_type": "torch_state_dict",
+  "best_epoch": 3,
+  "sample_counts": {
+    "fit_samples": 3984,
+    "test_points": 5000,
+    "test_samples": 4984,
+    "train_points": 4000,
+    "train_samples": 3984,
+    "valid_points": 1000,
+    "valid_samples": 984
+  },
+  "score_source": "selected_artifact",
+  "selection_objective": "forecasting_mse",
+  "selection_policy": "best_unlabeled_validation",
+  "selection_reason": null,
+  "selection_status": "available",
+  "selection_values": [
+    0.005791993360617198
+  ],
+  "test_curves": [
+    "0"
+  ],
+  "training_curves": [
+    "0"
+  ]
+}

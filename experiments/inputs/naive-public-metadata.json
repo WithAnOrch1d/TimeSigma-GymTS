@@ -1,0 +1,46 @@
+{
+  "status": "frozen",
+  "source_url": "https://adeval.cstcloud.cn/content/leaderboard",
+  "retrieved_at": "2026-09-09T15:32:47.099876+00:00",
+  "dataset": "AIOPS",
+  "schema": "NAIVE",
+  "visible_metric_names": [
+    "point-wise F1 PA",
+    "reduce-length F1 PA",
+    "event-wise F1 PA",
+    "delay-reduce-length F1 PA",
+    "point-wise AUPRC PA",
+    "reduce-length AUPRC PA",
+    "event-wise AUPRC PA",
+    "delay-reduce-length AUPRC PA"
+  ],
+  "method_count": 17,
+  "available_metric_cells": 136,
+  "extraction_mechanism": "Official deployed JS static score object parsed as literals by TypeScript AST; all 136 selected cells cross-checked against the rendered AIOPS/NAIVE DOM. No OCR or arbitrary JS evaluation.",
+  "raw_source_hashes": {
+    "raw/Mooli-OFL.txt": "12c5c11cf37c77a574ef3964fd27f117aa1e1dc4c1569b723cfe45c3d474306e",
+    "raw/Mooli-Regular.ttf": "3ff791ccba5c384d7f588acf7f0859737dc28d575fd3f1b6c35cdef1e9a091ef",
+    "raw/detailed-dom.json": "d0cb73b28b07ea41b09280dd90db2a5bdc7399d9cbc9280ac11f356fafb64332",
+    "raw/easytsad-pinned-readme.md": "2fa181cd2e110a4ce0d6f7cdbcfe9d581d8c58d6dc3894d167bede02531fe7e5",
+    "raw/index.css": "156b35d7e455316af2fc4d1a3497441ce924d8b4996aa209fedf7398263e66a1",
+    "raw/index.js": "3de73ae4a211ab11f8fa78a20e9ef1fff79f6a8587c2492218f59fc8862b8c2b",
+    "raw/leaderboard.css": "dc496fbdcbc4d91418db811a49813428c272ffaa378efb5f380e68873a39da66",
+    "raw/leaderboard.js": "9027df393599b612860297be5f53d9094e9444f917b08abc2f0779a2e2739806",
+    "raw/network.json": "2820f6902994f12a6e300deed4a932a27534ae403963e670c35d7ca9f65c5b9e",
+    "raw/page.html": "2fc3fd758c9b462d48eeb6ad416395dec3f1ccfb9f3287fa6238671b70a32760",
+    "raw/paper.html": "816c761fb805c890527508f5445ff91c3406e4e6ac55b78cce8f24e2746058f8",
+    "raw/rendered.html": "b839a49418c85c51bbc9f75e0591ca668e71e7a1e60ea3e08a72759aac9bc8be"
+  },
+  "normalized_snapshot_sha256": "8595812678add04b31937f2b72e6e4a9360fc8cfee928f8dd885b69c9a1bdf79",
+  "source_json_sha256": "281f025ddc299c6a230041c096afafa3ed99dd413033da67a1e4f0c70b29f2ca",
+  "csv_sha256": "4fa88ed5c50cb41c481240cf66df2e919fd9620c30f5f1d5f8b75f89af79f469",
+  "ranking_policy": {
+    "precision_decimals": 4,
+    "rounding": "ROUND_HALF_UP",
+    "ties": "competition rank: 1 + number of strictly greater comparison values",
+    "missing": "retain row, rank=null, sort after available values",
+    "note": "Rank at published four-decimal resolution; retain all raw evaluator and public values separately. Published table # is a fixed row index, not a recomputed metric rank."
+  },
+  "planning_boundary": "Frozen before ANY new formal AIOPS planning. Public values are unavailable to the Research Agent and are used only for post-evaluation comparison.",
+  "refresh_policy": "Never refresh this comparison snapshot after TimeSigma results exist."
+}

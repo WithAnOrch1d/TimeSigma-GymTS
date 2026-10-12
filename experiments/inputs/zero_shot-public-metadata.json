@@ -1,0 +1,43 @@
+{
+  "status": "frozen",
+  "source_url": "https://adeval.cstcloud.cn/content/leaderboard",
+  "retrieved_at": "2026-09-10T03:15:43.219Z",
+  "normalized_at": "2026-09-10T03:18:08.090045+00:00",
+  "dataset": "AIOPS",
+  "schema": "zero_shot",
+  "method_count": 17,
+  "available_metric_cells": 120,
+  "verified_dom_cells": 136,
+  "extraction_mechanism": "Fresh official deployed JS static literal extracted via TypeScript AST, independently matched to rendered DOM cells; missing values retained.",
+  "raw_source_hashes": {
+    "raw/LeaderboardPage.531efc97.css": "dc496fbdcbc4d91418db811a49813428c272ffaa378efb5f380e68873a39da66",
+    "raw/MainLayout.85d490a2.css": "3f9ffc51b4842dabb78a87e8e6aea6fdd591253b393e15f3acee63c7b0bdf141",
+    "raw/MainLayout.bbccb708.js": "dc775a02b9dc5d97515b2b495e6b58c9dac983dfa7ac90d56b7a56bac49cadfe",
+    "raw/Mooli-OFL.txt": "12c5c11cf37c77a574ef3964fd27f117aa1e1dc4c1569b723cfe45c3d474306e",
+    "raw/Mooli-Regular.ttf": "3ff791ccba5c384d7f588acf7f0859737dc28d575fd3f1b6c35cdef1e9a091ef",
+    "raw/QMenu.bf87e4d5.js": "3c1d05e52c5ebe10ab8a5cc20bc3e74ffc34cba276321cb8e39174c2dfca9ab3",
+    "raw/detailed-dom.json": "d0cb73b28b07ea41b09280dd90db2a5bdc7399d9cbc9280ac11f356fafb64332",
+    "raw/format.402f70d3.js": "f3789baae7316f069cb4386020ef406dbc596ecc94eef417e42771365f4746b4",
+    "raw/i18n.91521f99.js": "eb2181c683de9777b09f9a3b396a857adf54f5a8e1d1483b392c5aff498846e8",
+    "raw/index.50d0e29c.js": "6d7555c664dc7996d34299ddbd85384f2d72eb84adba977ab2c9c4b58bf45f1d",
+    "raw/index.5b8802ad.js": "3de73ae4a211ab11f8fa78a20e9ef1fff79f6a8587c2492218f59fc8862b8c2b",
+    "raw/index.5cbc5da4.css": "156b35d7e455316af2fc4d1a3497441ce924d8b4996aa209fedf7398263e66a1",
+    "raw/leaderboard": "2fc3fd758c9b462d48eeb6ad416395dec3f1ccfb9f3287fa6238671b70a32760",
+    "raw/leaderboard.js": "9027df393599b612860297be5f53d9094e9444f917b08abc2f0779a2e2739806",
+    "raw/network.json": "5540457bd162aafeba6a86f51a73ec8904dcd2de9a2d07168436509ae7fda42d",
+    "raw/rendered.html": "42fcf567011d9329f8a747bcaf89b208f121a07067292900fad7d7ad0fdc6c9a",
+    "raw/use-quasar.7b78ab83.js": "b4b8b753dcb57e006b5ab16a1e10d2eefff3b597540eb9489cb7f90715f0bc21"
+  },
+  "source_json_sha256": "7b6ccbbc3977348605509b92edce5040fb8ded91d063320943fb41b5c373a8a8",
+  "normalized_snapshot_sha256": "8cc4af3902ae326378bf487d74af4b553719241d28e448c79004e590432bec19",
+  "csv_sha256": "535b7db28f7cf2520cb478a2d4bd092d72ac2a436112d18f3d8858f6a82c8eb0",
+  "ranking_policy": {
+    "precision_decimals": 4,
+    "rounding": "ROUND_HALF_UP",
+    "ties": "competition rank: 1 + number of strictly greater comparison values",
+    "missing": "retain row, rank=null, sort after available values",
+    "note": "Rank at published four-decimal resolution; retain all raw evaluator and public values separately. Published table # is a fixed row index, not a recomputed metric rank."
+  },
+  "comparison_status": "PUBLISHED-LEADERBOARD COMPARISON ONLY",
+  "refresh_policy": "Never refresh after local schema-specific results. Public values are excluded from Planner context."
+}

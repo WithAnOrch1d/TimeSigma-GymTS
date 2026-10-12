@@ -1,0 +1,89 @@
+{
+  "action": {
+    "after": 32,
+    "before": 16,
+    "dimension": "window",
+    "parameter": "p"
+  },
+  "after_value": 0.6896551724137926,
+  "artifact": {
+    "artifact_path": "best.pt",
+    "artifact_type": "torch_state_dict",
+    "score_source": "selected_artifact",
+    "selection_status": "available"
+  },
+  "baseline_evidence_id": "component/AR/naive/TODS/234",
+  "baseline_pipeline": {
+    "ensemble_ref": null,
+    "method": "AR",
+    "operators": [],
+    "resolved_configuration": {
+      "Data_Params": {
+        "diff_order": 1,
+        "preprocess": "min-max"
+      },
+      "Model_Params": {
+        "batch_size": 128,
+        "epochs": 100,
+        "lr": 0.001,
+        "p": 16
+      }
+    }
+  },
+  "before_value": 0.7199999999999994,
+  "candidate_pipeline": {
+    "ensemble_ref": null,
+    "method": "AR",
+    "operators": [],
+    "resolved_configuration": {
+      "Data_Params": {
+        "diff_order": 1,
+        "preprocess": "min-max"
+      },
+      "Model_Params": {
+        "batch_size": 128,
+        "epochs": 100,
+        "lr": 0.001,
+        "p": 32
+      }
+    }
+  },
+  "edge_delta": -0.030344827586206824,
+  "evidence_id": "research-step/TODS/naive/234/tod234_exp1_ar_p32",
+  "kind": "research_step",
+  "metrics": {
+    "delay-reduced-length-auprc": 0.532925045197061,
+    "delay-reduced-length-f1": 0.5454545454545449,
+    "event-wise-auprc": 0.668433504088153,
+    "event-wise-f1": 0.6428571428571422,
+    "point-wise-auprc": 0.68758239249358,
+    "point-wise-f1": 0.6896551724137926,
+    "reduced-length-auprc": 0.7092296452285691,
+    "reduced-length-f1": 0.7142857142857136
+  },
+  "research_decision": {
+    "diagnosis": {
+      "reason": "Widening the AR window from p=16 to p=32 decreased target point-wise F1 from 0.7200 to 0.6897 (delta -0.0303), with all other pipeline dimensions frozen (diff_order=1, min-max, batch_size=128, epochs=100, lr=0.001). The hypothesis that the curve's high lag-1 autocorrelation (0.998) implies longer-range dependence exploitable by a wider AR window is refuted on the target metric: the differenced series' predictive structure is better captured by the shorter p=16.",
+      "verdict": "refuted"
+    },
+    "hypothesis": "Baseline chosen: component/AR/naive/TODS/234 is the mandated initial baseline and current global best (point-wise-f1 0.72). Candidate rationale: curve 234 has lag-1 autocorrelation 0.998 (slowly decaying temporal dependence), so the incumbent AR window p=16 likely truncates exploitable structure; widening the AR window to p=32 while keeping diff_order=1/min-max (all else frozen) is a new untested pipeline that should capture longer-range dependence and improve point-wise F1.",
+    "next_action": {
+      "dimension": "window",
+      "parameter": null,
+      "value": 8
+    },
+    "next_action_rationale": "The refutation is directionally informative: p=32 degraded the target metric, so the incumbent's advantage likely lies on the short-window side of p=16. p=8 is the untested opposite probe to test whether shrinking below the default further improves point-wise F1; if it also degrades, the window dimension is exhausted and preprocessing (z-score vs min-max on the skewed curve) becomes the next dimension to explore."
+  },
+  "target_metric": "point-wise-f1",
+  "task": {
+    "dataset": "TODS",
+    "schema": "naive",
+    "unit": {
+      "curve": "234",
+      "held_out_curves": [],
+      "training_curves": [
+        "234"
+      ]
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "qualified_binding": {
+    "__init__.py": "ebb0e872cc4fac8593c4e7b9ed941c15e7838a73025aab7ad2da17014fe40783",
+    "binding.py": "d3b00c25b730bae9b7ba42c82c8df47ce563d8ba8699b12d564d09a1d4d9c6b3",
+    "client.py": "b7de8d9c8b155eb9b1d88136b5e584eaf83563619508cd54733479429c26f5fa",
+    "conda-explicit.txt": "fcff01204bec71481b8482af952648503ab06c18e8fc2663618abf37c859ca8f",
+    "config.toml": "0dcb475815f09a1a5e8204f25346909b79231f986d56e0daa8cd10799d5d000b",
+    "execution.py": "4cc8ef67308c081db92da9e4b8581cf6503cf471e59a2917e782c1f89ccc2923",
+    "requirements.txt": "b95265da79d7d373123b2e4aeff137e9dfda60f3d877f2318bc44af5ae59d428",
+    "source.py": "b36ff720f097b058008f1509ae0fd812b48a0402a26c777a1d37543e0d003a87",
+    "sources.json": "a36d7584db733fb97956de0334ce76506f136cdb7fba0bb8436c146a248569ad",
+    "spec.py": "61c91f6404eda60aaef0df1bf7fa877b6cb7976deca9ce372901f61ca6ec2d9e",
+    "worker.py": "8d7b20cd308c46800c01909f3ac9a6e536361045289eaabcaea075d944ea4468"
+  },
+  "reason": "Path-only relocation of the qualified external adapter and runtime; native worker/config/source bytes unchanged.",
+  "relocated_binding": {
+    "__init__.py": "ebb0e872cc4fac8593c4e7b9ed941c15e7838a73025aab7ad2da17014fe40783",
+    "binding.py": "29e15e1d3161ff0ddb3086377130b1396db6edd16b41bb25044dc8851f1ef352",
+    "client.py": "5398be666881fdb9b3ad3ea837dd6281134eefa54ad76ccd38fef2ac5022323b",
+    "config.toml": "0dcb475815f09a1a5e8204f25346909b79231f986d56e0daa8cd10799d5d000b",
+    "execution.py": "4cc8ef67308c081db92da9e4b8581cf6503cf471e59a2917e782c1f89ccc2923",
+    "runtime/__init__.py": "a0ec4f94b32754c242ca31792dbdaca6fe8235ecb1c7c93cbcd0260f573afe4d",
+    "runtime/conda-explicit.txt": "fcff01204bec71481b8482af952648503ab06c18e8fc2663618abf37c859ca8f",
+    "runtime/requirements.txt": "b95265da79d7d373123b2e4aeff137e9dfda60f3d877f2318bc44af5ae59d428",
+    "runtime/setup.py": "4d5a04b4e2245d5e19c3f06ee315904eb4e06f1ca3e03e7efa5aa979611c1233",
+    "runtime/worker.py": "8d7b20cd308c46800c01909f3ac9a6e536361045289eaabcaea075d944ea4468",
+    "source.py": "2f31cec1d095b4e7257b2ad6821596ebe265105083ca395ede312e2d3de1ca9b",
+    "sources.json": "a36d7584db733fb97956de0334ce76506f136cdb7fba0bb8436c146a248569ad",
+    "spec.py": "bd92d3f41944179b119d269148e52e2519cb9072aed02c8abb7dff9c85ad6613"
+  }
+}

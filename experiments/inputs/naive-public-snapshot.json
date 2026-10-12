@@ -1,0 +1,1086 @@
+{
+  "dataset": "AIOPS",
+  "schema": "NAIVE",
+  "primary_metric": "point-wise-f1",
+  "snapshot_timestamp": "2026-09-09T15:32:47.099876+00:00",
+  "source_url": "https://adeval.cstcloud.cn/content/leaderboard",
+  "metrics": [
+    {
+      "id": "point-wise-f1",
+      "label": "point-wise F1 PA",
+      "source_key": "point-wise F1",
+      "official_summary_key": "best f1 under pa"
+    },
+    {
+      "id": "reduced-length-f1",
+      "label": "reduce-length F1 PA",
+      "source_key": "reduced-length F1",
+      "official_summary_key": "event-based f1 under pa with mode log"
+    },
+    {
+      "id": "event-wise-f1",
+      "label": "event-wise F1 PA",
+      "source_key": "event-wise F1",
+      "official_summary_key": "event-based f1 under pa with mode squeeze"
+    },
+    {
+      "id": "delay-reduced-length-f1",
+      "label": "delay-reduce-length F1 PA",
+      "source_key": "delay reduced-length F1",
+      "official_summary_key": "event-based f1 under 10-delay pa with mode log"
+    },
+    {
+      "id": "point-wise-auprc",
+      "label": "point-wise AUPRC PA",
+      "source_key": "point-wise AUPRC",
+      "official_summary_key": "point-based auprc pa"
+    },
+    {
+      "id": "reduced-length-auprc",
+      "label": "reduce-length AUPRC PA",
+      "source_key": "reduced-length AUPRC",
+      "official_summary_key": "event-based auprc under pa with mode log"
+    },
+    {
+      "id": "event-wise-auprc",
+      "label": "event-wise AUPRC PA",
+      "source_key": "event-wise AUPRC",
+      "official_summary_key": "event-based auprc under pa with mode squeeze"
+    },
+    {
+      "id": "delay-reduced-length-auprc",
+      "label": "delay-reduce-length AUPRC PA",
+      "source_key": "delay reduced-length AUPRC",
+      "official_summary_key": "10-th auprc under event-based pa with mode log"
+    }
+  ],
+  "rows": [
+    {
+      "method": "AR",
+      "display_name": "AR",
+      "website_method_cell": "✨ AR",
+      "website_row_index": 1,
+      "source": "public_snapshot",
+      "dataset": "AIOPS",
+      "schema": "NAIVE",
+      "status": "published",
+      "metrics": {
+        "point-wise-f1": 0.8775,
+        "reduced-length-f1": 0.7517,
+        "event-wise-f1": 0.6944,
+        "delay-reduced-length-f1": 0.7095,
+        "point-wise-auprc": 0.9064,
+        "reduced-length-auprc": 0.75,
+        "event-wise-auprc": 0.6833,
+        "delay-reduced-length-auprc": 0.6948
+      },
+      "display_values": {
+        "point-wise-f1": "0.8775",
+        "reduced-length-f1": "0.7517",
+        "event-wise-f1": "0.6944",
+        "delay-reduced-length-f1": "0.7095",
+        "point-wise-auprc": "0.9064",
+        "reduced-length-auprc": "0.75",
+        "event-wise-auprc": "0.6833",
+        "delay-reduced-length-auprc": "0.6948"
+      },
+      "display_precision": {
+        "point-wise-f1": 4,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 4,
+        "delay-reduced-length-f1": 4,
+        "point-wise-auprc": 4,
+        "reduced-length-auprc": 2,
+        "event-wise-auprc": 4,
+        "delay-reduced-length-auprc": 4
+      },
+      "missing_values": {
+        "point-wise-f1": null,
+        "reduced-length-f1": null,
+        "event-wise-f1": null,
+        "delay-reduced-length-f1": null,
+        "point-wise-auprc": null,
+        "reduced-length-auprc": null,
+        "event-wise-auprc": null,
+        "delay-reduced-length-auprc": null
+      },
+      "public_precomputed_ranks": {
+        "point-wise-f1": 8,
+        "reduced-length-f1": 5,
+        "event-wise-f1": 5,
+        "delay-reduced-length-f1": 5,
+        "point-wise-auprc": 6,
+        "reduced-length-auprc": 5,
+        "event-wise-auprc": 5,
+        "delay-reduced-length-auprc": 5
+      }
+    },
+    {
+      "method": "LSTMADalpha",
+      "display_name": "LSTMADalpha",
+      "website_method_cell": "✨ LSTMADalpha",
+      "website_row_index": 2,
+      "source": "public_snapshot",
+      "dataset": "AIOPS",
+      "schema": "NAIVE",
+      "status": "published",
+      "metrics": {
+        "point-wise-f1": 0.9296,
+        "reduced-length-f1": 0.8081,
+        "event-wise-f1": 0.7671,
+        "delay-reduced-length-f1": 0.7762,
+        "point-wise-auprc": 0.9541,
+        "reduced-length-auprc": 0.8236,
+        "event-wise-auprc": 0.7694,
+        "delay-reduced-length-auprc": 0.7836
+      },
+      "display_values": {
+        "point-wise-f1": "0.9296",
+        "reduced-length-f1": "0.8081",
+        "event-wise-f1": "0.7671",
+        "delay-reduced-length-f1": "0.7762",
+        "point-wise-auprc": "0.9541",
+        "reduced-length-auprc": "0.8236",
+        "event-wise-auprc": "0.7694",
+        "delay-reduced-length-auprc": "0.7836"
+      },
+      "display_precision": {
+        "point-wise-f1": 4,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 4,
+        "delay-reduced-length-f1": 4,
+        "point-wise-auprc": 4,
+        "reduced-length-auprc": 4,
+        "event-wise-auprc": 4,
+        "delay-reduced-length-auprc": 4
+      },
+      "missing_values": {
+        "point-wise-f1": null,
+        "reduced-length-f1": null,
+        "event-wise-f1": null,
+        "delay-reduced-length-f1": null,
+        "point-wise-auprc": null,
+        "reduced-length-auprc": null,
+        "event-wise-auprc": null,
+        "delay-reduced-length-auprc": null
+      },
+      "public_precomputed_ranks": {
+        "point-wise-f1": 1,
+        "reduced-length-f1": 1,
+        "event-wise-f1": 1,
+        "delay-reduced-length-f1": 1,
+        "point-wise-auprc": 2,
+        "reduced-length-auprc": 1,
+        "event-wise-auprc": 1,
+        "delay-reduced-length-auprc": 2
+      }
+    },
+    {
+      "method": "LSTMADbeta",
+      "display_name": "LSTMADbeta",
+      "website_method_cell": "✨ LSTMADbeta",
+      "website_row_index": 3,
+      "source": "public_snapshot",
+      "dataset": "AIOPS",
+      "schema": "NAIVE",
+      "status": "published",
+      "metrics": {
+        "point-wise-f1": 0.9288,
+        "reduced-length-f1": 0.8034,
+        "event-wise-f1": 0.763,
+        "delay-reduced-length-f1": 0.7743,
+        "point-wise-auprc": 0.9551,
+        "reduced-length-auprc": 0.8219,
+        "event-wise-auprc": 0.7645,
+        "delay-reduced-length-auprc": 0.7842
+      },
+      "display_values": {
+        "point-wise-f1": "0.9288",
+        "reduced-length-f1": "0.8034",
+        "event-wise-f1": "0.763",
+        "delay-reduced-length-f1": "0.7743",
+        "point-wise-auprc": "0.9551",
+        "reduced-length-auprc": "0.8219",
+        "event-wise-auprc": "0.7645",
+        "delay-reduced-length-auprc": "0.7842"
+      },
+      "display_precision": {
+        "point-wise-f1": 4,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 3,
+        "delay-reduced-length-f1": 4,
+        "point-wise-auprc": 4,
+        "reduced-length-auprc": 4,
+        "event-wise-auprc": 4,
+        "delay-reduced-length-auprc": 4
+      },
+      "missing_values": {
+        "point-wise-f1": null,
+        "reduced-length-f1": null,
+        "event-wise-f1": null,
+        "delay-reduced-length-f1": null,
+        "point-wise-auprc": null,
+        "reduced-length-auprc": null,
+        "event-wise-auprc": null,
+        "delay-reduced-length-auprc": null
+      },
+      "public_precomputed_ranks": {
+        "point-wise-f1": 2,
+        "reduced-length-f1": 2,
+        "event-wise-f1": 2,
+        "delay-reduced-length-f1": 2,
+        "point-wise-auprc": 1,
+        "reduced-length-auprc": 2,
+        "event-wise-auprc": 2,
+        "delay-reduced-length-auprc": 1
+      }
+    },
+    {
+      "method": "AE",
+      "display_name": "AE",
+      "website_method_cell": "✨ AE",
+      "website_row_index": 4,
+      "source": "public_snapshot",
+      "dataset": "AIOPS",
+      "schema": "NAIVE",
+      "status": "published",
+      "metrics": {
+        "point-wise-f1": 0.8778,
+        "reduced-length-f1": 0.7222,
+        "event-wise-f1": 0.6743,
+        "delay-reduced-length-f1": 0.6853,
+        "point-wise-auprc": 0.9005,
+        "reduced-length-auprc": 0.7295,
+        "event-wise-auprc": 0.668,
+        "delay-reduced-length-auprc": 0.6836
+      },
+      "display_values": {
+        "point-wise-f1": "0.8778",
+        "reduced-length-f1": "0.7222",
+        "event-wise-f1": "0.6743",
+        "delay-reduced-length-f1": "0.6853",
+        "point-wise-auprc": "0.9005",
+        "reduced-length-auprc": "0.7295",
+        "event-wise-auprc": "0.668",
+        "delay-reduced-length-auprc": "0.6836"
+      },
+      "display_precision": {
+        "point-wise-f1": 4,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 4,
+        "delay-reduced-length-f1": 4,
+        "point-wise-auprc": 4,
+        "reduced-length-auprc": 4,
+        "event-wise-auprc": 3,
+        "delay-reduced-length-auprc": 4
+      },
+      "missing_values": {
+        "point-wise-f1": null,
+        "reduced-length-f1": null,
+        "event-wise-f1": null,
+        "delay-reduced-length-f1": null,
+        "point-wise-auprc": null,
+        "reduced-length-auprc": null,
+        "event-wise-auprc": null,
+        "delay-reduced-length-auprc": null
+      },
+      "public_precomputed_ranks": {
+        "point-wise-f1": 7,
+        "reduced-length-f1": 6,
+        "event-wise-f1": 6,
+        "delay-reduced-length-f1": 6,
+        "point-wise-auprc": 8,
+        "reduced-length-auprc": 6,
+        "event-wise-auprc": 6,
+        "delay-reduced-length-auprc": 6
+      }
+    },
+    {
+      "method": "EncDecAD",
+      "display_name": "EncDecAD",
+      "website_method_cell": "✨ EncDecAD",
+      "website_row_index": 5,
+      "source": "public_snapshot",
+      "dataset": "AIOPS",
+      "schema": "NAIVE",
+      "status": "published",
+      "metrics": {
+        "point-wise-f1": 0.9015,
+        "reduced-length-f1": 0.7583,
+        "event-wise-f1": 0.7022,
+        "delay-reduced-length-f1": 0.725,
+        "point-wise-auprc": 0.9243,
+        "reduced-length-auprc": 0.7621,
+        "event-wise-auprc": 0.6957,
+        "delay-reduced-length-auprc": 0.7195
+      },
+      "display_values": {
+        "point-wise-f1": "0.9015",
+        "reduced-length-f1": "0.7583",
+        "event-wise-f1": "0.7022",
+        "delay-reduced-length-f1": "0.725",
+        "point-wise-auprc": "0.9243",
+        "reduced-length-auprc": "0.7621",
+        "event-wise-auprc": "0.6957",
+        "delay-reduced-length-auprc": "0.7195"
+      },
+      "display_precision": {
+        "point-wise-f1": 4,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 4,
+        "delay-reduced-length-f1": 3,
+        "point-wise-auprc": 4,
+        "reduced-length-auprc": 4,
+        "event-wise-auprc": 4,
+        "delay-reduced-length-auprc": 4
+      },
+      "missing_values": {
+        "point-wise-f1": null,
+        "reduced-length-f1": null,
+        "event-wise-f1": null,
+        "delay-reduced-length-f1": null,
+        "point-wise-auprc": null,
+        "reduced-length-auprc": null,
+        "event-wise-auprc": null,
+        "delay-reduced-length-auprc": null
+      },
+      "public_precomputed_ranks": {
+        "point-wise-f1": 5,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 4,
+        "delay-reduced-length-f1": 4,
+        "point-wise-auprc": 5,
+        "reduced-length-auprc": 4,
+        "event-wise-auprc": 4,
+        "delay-reduced-length-auprc": 4
+      }
+    },
+    {
+      "method": "Donut",
+      "display_name": "Donut",
+      "website_method_cell": "✨ Donut",
+      "website_row_index": 6,
+      "source": "public_snapshot",
+      "dataset": "AIOPS",
+      "schema": "NAIVE",
+      "status": "published",
+      "metrics": {
+        "point-wise-f1": 0.8595,
+        "reduced-length-f1": 0.6957,
+        "event-wise-f1": 0.6299,
+        "delay-reduced-length-f1": 0.6683,
+        "point-wise-auprc": 0.8603,
+        "reduced-length-auprc": 0.6791,
+        "event-wise-auprc": 0.6077,
+        "delay-reduced-length-auprc": 0.6475
+      },
+      "display_values": {
+        "point-wise-f1": "0.8595",
+        "reduced-length-f1": "0.6957",
+        "event-wise-f1": "0.6299",
+        "delay-reduced-length-f1": "0.6683",
+        "point-wise-auprc": "0.8603",
+        "reduced-length-auprc": "0.6791",
+        "event-wise-auprc": "0.6077",
+        "delay-reduced-length-auprc": "0.6475"
+      },
+      "display_precision": {
+        "point-wise-f1": 4,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 4,
+        "delay-reduced-length-f1": 4,
+        "point-wise-auprc": 4,
+        "reduced-length-auprc": 4,
+        "event-wise-auprc": 4,
+        "delay-reduced-length-auprc": 4
+      },
+      "missing_values": {
+        "point-wise-f1": null,
+        "reduced-length-f1": null,
+        "event-wise-f1": null,
+        "delay-reduced-length-f1": null,
+        "point-wise-auprc": null,
+        "reduced-length-auprc": null,
+        "event-wise-auprc": null,
+        "delay-reduced-length-auprc": null
+      },
+      "public_precomputed_ranks": {
+        "point-wise-f1": 9,
+        "reduced-length-f1": 8,
+        "event-wise-f1": 9,
+        "delay-reduced-length-f1": 8,
+        "point-wise-auprc": 9,
+        "reduced-length-auprc": 9,
+        "event-wise-auprc": 9,
+        "delay-reduced-length-auprc": 9
+      }
+    },
+    {
+      "method": "FCVAE",
+      "display_name": "FCVAE",
+      "website_method_cell": "✨ FCVAE",
+      "website_row_index": 7,
+      "source": "public_snapshot",
+      "dataset": "AIOPS",
+      "schema": "NAIVE",
+      "status": "published",
+      "metrics": {
+        "point-wise-f1": 0.9183,
+        "reduced-length-f1": 0.7851,
+        "event-wise-f1": 0.7364,
+        "delay-reduced-length-f1": 0.7639,
+        "point-wise-auprc": 0.9366,
+        "reduced-length-auprc": 0.8079,
+        "event-wise-auprc": 0.7461,
+        "delay-reduced-length-auprc": 0.7717
+      },
+      "display_values": {
+        "point-wise-f1": "0.9183",
+        "reduced-length-f1": "0.7851",
+        "event-wise-f1": "0.7364",
+        "delay-reduced-length-f1": "0.7639",
+        "point-wise-auprc": "0.9366",
+        "reduced-length-auprc": "0.8079",
+        "event-wise-auprc": "0.7461",
+        "delay-reduced-length-auprc": "0.7717"
+      },
+      "display_precision": {
+        "point-wise-f1": 4,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 4,
+        "delay-reduced-length-f1": 4,
+        "point-wise-auprc": 4,
+        "reduced-length-auprc": 4,
+        "event-wise-auprc": 4,
+        "delay-reduced-length-auprc": 4
+      },
+      "missing_values": {
+        "point-wise-f1": null,
+        "reduced-length-f1": null,
+        "event-wise-f1": null,
+        "delay-reduced-length-f1": null,
+        "point-wise-auprc": null,
+        "reduced-length-auprc": null,
+        "event-wise-auprc": null,
+        "delay-reduced-length-auprc": null
+      },
+      "public_precomputed_ranks": {
+        "point-wise-f1": 3,
+        "reduced-length-f1": 3,
+        "event-wise-f1": 3,
+        "delay-reduced-length-f1": 3,
+        "point-wise-auprc": 4,
+        "reduced-length-auprc": 3,
+        "event-wise-auprc": 3,
+        "delay-reduced-length-auprc": 3
+      }
+    },
+    {
+      "method": "TimesNet",
+      "display_name": "TimesNet",
+      "website_method_cell": "✨ TimesNet",
+      "website_row_index": 8,
+      "source": "public_snapshot",
+      "dataset": "AIOPS",
+      "schema": "NAIVE",
+      "status": "published",
+      "metrics": {
+        "point-wise-f1": 0.8018,
+        "reduced-length-f1": 0.6737,
+        "event-wise-f1": 0.6379,
+        "delay-reduced-length-f1": 0.6379,
+        "point-wise-auprc": 0.8075,
+        "reduced-length-auprc": 0.6674,
+        "event-wise-auprc": 0.6172,
+        "delay-reduced-length-auprc": 0.6138
+      },
+      "display_values": {
+        "point-wise-f1": "0.8018",
+        "reduced-length-f1": "0.6737",
+        "event-wise-f1": "0.6379",
+        "delay-reduced-length-f1": "0.6379",
+        "point-wise-auprc": "0.8075",
+        "reduced-length-auprc": "0.6674",
+        "event-wise-auprc": "0.6172",
+        "delay-reduced-length-auprc": "0.6138"
+      },
+      "display_precision": {
+        "point-wise-f1": 4,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 4,
+        "delay-reduced-length-f1": 4,
+        "point-wise-auprc": 4,
+        "reduced-length-auprc": 4,
+        "event-wise-auprc": 4,
+        "delay-reduced-length-auprc": 4
+      },
+      "missing_values": {
+        "point-wise-f1": null,
+        "reduced-length-f1": null,
+        "event-wise-f1": null,
+        "delay-reduced-length-f1": null,
+        "point-wise-auprc": null,
+        "reduced-length-auprc": null,
+        "event-wise-auprc": null,
+        "delay-reduced-length-auprc": null
+      },
+      "public_precomputed_ranks": {
+        "point-wise-f1": 10,
+        "reduced-length-f1": 10,
+        "event-wise-f1": 7,
+        "delay-reduced-length-f1": 10,
+        "point-wise-auprc": 10,
+        "reduced-length-auprc": 10,
+        "event-wise-auprc": 8,
+        "delay-reduced-length-auprc": 10
+      }
+    },
+    {
+      "method": "SRCNN",
+      "display_name": "SRCNN",
+      "website_method_cell": "✨ SRCNN",
+      "website_row_index": 9,
+      "source": "public_snapshot",
+      "dataset": "AIOPS",
+      "schema": "NAIVE",
+      "status": "published",
+      "metrics": {
+        "point-wise-f1": 0.4069,
+        "reduced-length-f1": 0.1627,
+        "event-wise-f1": 0.1338,
+        "delay-reduced-length-f1": 0.1356,
+        "point-wise-auprc": 0.3258,
+        "reduced-length-auprc": 0.0972,
+        "event-wise-auprc": 0.0712,
+        "delay-reduced-length-auprc": 0.0757
+      },
+      "display_values": {
+        "point-wise-f1": "0.4069",
+        "reduced-length-f1": "0.1627",
+        "event-wise-f1": "0.1338",
+        "delay-reduced-length-f1": "0.1356",
+        "point-wise-auprc": "0.3258",
+        "reduced-length-auprc": "0.0972",
+        "event-wise-auprc": "0.0712",
+        "delay-reduced-length-auprc": "0.0757"
+      },
+      "display_precision": {
+        "point-wise-f1": 4,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 4,
+        "delay-reduced-length-f1": 4,
+        "point-wise-auprc": 4,
+        "reduced-length-auprc": 4,
+        "event-wise-auprc": 4,
+        "delay-reduced-length-auprc": 4
+      },
+      "missing_values": {
+        "point-wise-f1": null,
+        "reduced-length-f1": null,
+        "event-wise-f1": null,
+        "delay-reduced-length-f1": null,
+        "point-wise-auprc": null,
+        "reduced-length-auprc": null,
+        "event-wise-auprc": null,
+        "delay-reduced-length-auprc": null
+      },
+      "public_precomputed_ranks": {
+        "point-wise-f1": 15,
+        "reduced-length-f1": 15,
+        "event-wise-f1": 15,
+        "delay-reduced-length-f1": 15,
+        "point-wise-auprc": 15,
+        "reduced-length-auprc": 15,
+        "event-wise-auprc": 15,
+        "delay-reduced-length-auprc": 15
+      }
+    },
+    {
+      "method": "TFAD",
+      "display_name": "TFAD",
+      "website_method_cell": "✨ TFAD",
+      "website_row_index": 10,
+      "source": "public_snapshot",
+      "dataset": "AIOPS",
+      "schema": "NAIVE",
+      "status": "published",
+      "metrics": {
+        "point-wise-f1": 0.602,
+        "reduced-length-f1": 0.3551,
+        "event-wise-f1": 0.2638,
+        "delay-reduced-length-f1": 0.3132,
+        "point-wise-auprc": 0.574,
+        "reduced-length-auprc": 0.2529,
+        "event-wise-auprc": 0.1567,
+        "delay-reduced-length-auprc": 0.2153
+      },
+      "display_values": {
+        "point-wise-f1": "0.602",
+        "reduced-length-f1": "0.3551",
+        "event-wise-f1": "0.2638",
+        "delay-reduced-length-f1": "0.3132",
+        "point-wise-auprc": "0.574",
+        "reduced-length-auprc": "0.2529",
+        "event-wise-auprc": "0.1567",
+        "delay-reduced-length-auprc": "0.2153"
+      },
+      "display_precision": {
+        "point-wise-f1": 3,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 4,
+        "delay-reduced-length-f1": 4,
+        "point-wise-auprc": 3,
+        "reduced-length-auprc": 4,
+        "event-wise-auprc": 4,
+        "delay-reduced-length-auprc": 4
+      },
+      "missing_values": {
+        "point-wise-f1": null,
+        "reduced-length-f1": null,
+        "event-wise-f1": null,
+        "delay-reduced-length-f1": null,
+        "point-wise-auprc": null,
+        "reduced-length-auprc": null,
+        "event-wise-auprc": null,
+        "delay-reduced-length-auprc": null
+      },
+      "public_precomputed_ranks": {
+        "point-wise-f1": 14,
+        "reduced-length-f1": 14,
+        "event-wise-f1": 14,
+        "delay-reduced-length-f1": 13,
+        "point-wise-auprc": 14,
+        "reduced-length-auprc": 14,
+        "event-wise-auprc": 14,
+        "delay-reduced-length-auprc": 14
+      }
+    },
+    {
+      "method": "OFA",
+      "display_name": "OFA",
+      "website_method_cell": "✨ OFA",
+      "website_row_index": 11,
+      "source": "public_snapshot",
+      "dataset": "AIOPS",
+      "schema": "NAIVE",
+      "status": "published",
+      "metrics": {
+        "point-wise-f1": 0.881,
+        "reduced-length-f1": 0.6891,
+        "event-wise-f1": 0.615,
+        "delay-reduced-length-f1": 0.6606,
+        "point-wise-auprc": 0.9009,
+        "reduced-length-auprc": 0.6973,
+        "event-wise-auprc": 0.6007,
+        "delay-reduced-length-auprc": 0.6544
+      },
+      "display_values": {
+        "point-wise-f1": "0.881",
+        "reduced-length-f1": "0.6891",
+        "event-wise-f1": "0.615",
+        "delay-reduced-length-f1": "0.6606",
+        "point-wise-auprc": "0.9009",
+        "reduced-length-auprc": "0.6973",
+        "event-wise-auprc": "0.6007",
+        "delay-reduced-length-auprc": "0.6544"
+      },
+      "display_precision": {
+        "point-wise-f1": 3,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 3,
+        "delay-reduced-length-f1": 4,
+        "point-wise-auprc": 4,
+        "reduced-length-auprc": 4,
+        "event-wise-auprc": 4,
+        "delay-reduced-length-auprc": 4
+      },
+      "missing_values": {
+        "point-wise-f1": null,
+        "reduced-length-f1": null,
+        "event-wise-f1": null,
+        "delay-reduced-length-f1": null,
+        "point-wise-auprc": null,
+        "reduced-length-auprc": null,
+        "event-wise-auprc": null,
+        "delay-reduced-length-auprc": null
+      },
+      "public_precomputed_ranks": {
+        "point-wise-f1": 6,
+        "reduced-length-f1": 9,
+        "event-wise-f1": 10,
+        "delay-reduced-length-f1": 9,
+        "point-wise-auprc": 7,
+        "reduced-length-auprc": 8,
+        "event-wise-auprc": 10,
+        "delay-reduced-length-auprc": 8
+      }
+    },
+    {
+      "method": "AnomalyTransformer",
+      "display_name": "AnomalyTransformer",
+      "website_method_cell": "✨ AnomalyTransformer",
+      "website_row_index": 12,
+      "source": "public_snapshot",
+      "dataset": "AIOPS",
+      "schema": "NAIVE",
+      "status": "published",
+      "metrics": {
+        "point-wise-f1": 0.6235,
+        "reduced-length-f1": 0.3728,
+        "event-wise-f1": 0.3124,
+        "delay-reduced-length-f1": 0.3112,
+        "point-wise-auprc": 0.5861,
+        "reduced-length-auprc": 0.3053,
+        "event-wise-auprc": 0.2384,
+        "delay-reduced-length-auprc": 0.2301
+      },
+      "display_values": {
+        "point-wise-f1": "0.6235",
+        "reduced-length-f1": "0.3728",
+        "event-wise-f1": "0.3124",
+        "delay-reduced-length-f1": "0.3112",
+        "point-wise-auprc": "0.5861",
+        "reduced-length-auprc": "0.3053",
+        "event-wise-auprc": "0.2384",
+        "delay-reduced-length-auprc": "0.2301"
+      },
+      "display_precision": {
+        "point-wise-f1": 4,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 4,
+        "delay-reduced-length-f1": 4,
+        "point-wise-auprc": 4,
+        "reduced-length-auprc": 4,
+        "event-wise-auprc": 4,
+        "delay-reduced-length-auprc": 4
+      },
+      "missing_values": {
+        "point-wise-f1": null,
+        "reduced-length-f1": null,
+        "event-wise-f1": null,
+        "delay-reduced-length-f1": null,
+        "point-wise-auprc": null,
+        "reduced-length-auprc": null,
+        "event-wise-auprc": null,
+        "delay-reduced-length-auprc": null
+      },
+      "public_precomputed_ranks": {
+        "point-wise-f1": 13,
+        "reduced-length-f1": 13,
+        "event-wise-f1": 12,
+        "delay-reduced-length-f1": 14,
+        "point-wise-auprc": 13,
+        "reduced-length-auprc": 13,
+        "event-wise-auprc": 12,
+        "delay-reduced-length-auprc": 13
+      }
+    },
+    {
+      "method": "FITS",
+      "display_name": "FITS",
+      "website_method_cell": "✨ FITS",
+      "website_row_index": 13,
+      "source": "public_snapshot",
+      "dataset": "AIOPS",
+      "schema": "NAIVE",
+      "status": "published",
+      "metrics": {
+        "point-wise-f1": 0.9108,
+        "reduced-length-f1": 0.7139,
+        "event-wise-f1": 0.6324,
+        "delay-reduced-length-f1": 0.6779,
+        "point-wise-auprc": 0.9385,
+        "reduced-length-auprc": 0.7187,
+        "event-wise-auprc": 0.6247,
+        "delay-reduced-length-auprc": 0.6719
+      },
+      "display_values": {
+        "point-wise-f1": "0.9108",
+        "reduced-length-f1": "0.7139",
+        "event-wise-f1": "0.6324",
+        "delay-reduced-length-f1": "0.6779",
+        "point-wise-auprc": "0.9385",
+        "reduced-length-auprc": "0.7187",
+        "event-wise-auprc": "0.6247",
+        "delay-reduced-length-auprc": "0.6719"
+      },
+      "display_precision": {
+        "point-wise-f1": 4,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 4,
+        "delay-reduced-length-f1": 4,
+        "point-wise-auprc": 4,
+        "reduced-length-auprc": 4,
+        "event-wise-auprc": 4,
+        "delay-reduced-length-auprc": 4
+      },
+      "missing_values": {
+        "point-wise-f1": null,
+        "reduced-length-f1": null,
+        "event-wise-f1": null,
+        "delay-reduced-length-f1": null,
+        "point-wise-auprc": null,
+        "reduced-length-auprc": null,
+        "event-wise-auprc": null,
+        "delay-reduced-length-auprc": null
+      },
+      "public_precomputed_ranks": {
+        "point-wise-f1": 4,
+        "reduced-length-f1": 7,
+        "event-wise-f1": 8,
+        "delay-reduced-length-f1": 7,
+        "point-wise-auprc": 3,
+        "reduced-length-auprc": 7,
+        "event-wise-auprc": 7,
+        "delay-reduced-length-auprc": 7
+      }
+    },
+    {
+      "method": "SubLOF",
+      "display_name": "SubLOF",
+      "website_method_cell": "✨ SubLOF",
+      "website_row_index": 14,
+      "source": "public_snapshot",
+      "dataset": "AIOPS",
+      "schema": "NAIVE",
+      "status": "published",
+      "metrics": {
+        "point-wise-f1": 0.7273,
+        "reduced-length-f1": 0.3764,
+        "event-wise-f1": 0.2805,
+        "delay-reduced-length-f1": 0.3168,
+        "point-wise-auprc": 0.7015,
+        "reduced-length-auprc": 0.31,
+        "event-wise-auprc": 0.2194,
+        "delay-reduced-length-auprc": 0.2454
+      },
+      "display_values": {
+        "point-wise-f1": "0.7273",
+        "reduced-length-f1": "0.3764",
+        "event-wise-f1": "0.2805",
+        "delay-reduced-length-f1": "0.3168",
+        "point-wise-auprc": "0.7015",
+        "reduced-length-auprc": "0.31",
+        "event-wise-auprc": "0.2194",
+        "delay-reduced-length-auprc": "0.2454"
+      },
+      "display_precision": {
+        "point-wise-f1": 4,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 4,
+        "delay-reduced-length-f1": 4,
+        "point-wise-auprc": 4,
+        "reduced-length-auprc": 2,
+        "event-wise-auprc": 4,
+        "delay-reduced-length-auprc": 4
+      },
+      "missing_values": {
+        "point-wise-f1": null,
+        "reduced-length-f1": null,
+        "event-wise-f1": null,
+        "delay-reduced-length-f1": null,
+        "point-wise-auprc": null,
+        "reduced-length-auprc": null,
+        "event-wise-auprc": null,
+        "delay-reduced-length-auprc": null
+      },
+      "public_precomputed_ranks": {
+        "point-wise-f1": 12,
+        "reduced-length-f1": 12,
+        "event-wise-f1": 13,
+        "delay-reduced-length-f1": 12,
+        "point-wise-auprc": 12,
+        "reduced-length-auprc": 12,
+        "event-wise-auprc": 13,
+        "delay-reduced-length-auprc": 12
+      }
+    },
+    {
+      "method": "TranAD",
+      "display_name": "TranAD",
+      "website_method_cell": "✨ TranAD",
+      "website_row_index": 15,
+      "source": "public_snapshot",
+      "dataset": "AIOPS",
+      "schema": "NAIVE",
+      "status": "published",
+      "metrics": {
+        "point-wise-f1": 0.7696,
+        "reduced-length-f1": 0.6486,
+        "event-wise-f1": 0.6051,
+        "delay-reduced-length-f1": 0.5875,
+        "point-wise-auprc": 0.7581,
+        "reduced-length-auprc": 0.5798,
+        "event-wise-auprc": 0.5274,
+        "delay-reduced-length-auprc": 0.5166
+      },
+      "display_values": {
+        "point-wise-f1": "0.7696",
+        "reduced-length-f1": "0.6486",
+        "event-wise-f1": "0.6051",
+        "delay-reduced-length-f1": "0.5875",
+        "point-wise-auprc": "0.7581",
+        "reduced-length-auprc": "0.5798",
+        "event-wise-auprc": "0.5274",
+        "delay-reduced-length-auprc": "0.5166"
+      },
+      "display_precision": {
+        "point-wise-f1": 4,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 4,
+        "delay-reduced-length-f1": 4,
+        "point-wise-auprc": 4,
+        "reduced-length-auprc": 4,
+        "event-wise-auprc": 4,
+        "delay-reduced-length-auprc": 4
+      },
+      "missing_values": {
+        "point-wise-f1": null,
+        "reduced-length-f1": null,
+        "event-wise-f1": null,
+        "delay-reduced-length-f1": null,
+        "point-wise-auprc": null,
+        "reduced-length-auprc": null,
+        "event-wise-auprc": null,
+        "delay-reduced-length-auprc": null
+      },
+      "public_precomputed_ranks": {
+        "point-wise-f1": 11,
+        "reduced-length-f1": 11,
+        "event-wise-f1": 11,
+        "delay-reduced-length-f1": 11,
+        "point-wise-auprc": 11,
+        "reduced-length-auprc": 11,
+        "event-wise-auprc": 11,
+        "delay-reduced-length-auprc": 11
+      }
+    },
+    {
+      "method": "MatrixProfile",
+      "display_name": "MatrixProfile",
+      "website_method_cell": "✨ MatrixProfile",
+      "website_row_index": 16,
+      "source": "public_snapshot",
+      "dataset": "AIOPS",
+      "schema": "NAIVE",
+      "status": "published",
+      "metrics": {
+        "point-wise-f1": 0.1915,
+        "reduced-length-f1": 0.0281,
+        "event-wise-f1": 0.0171,
+        "delay-reduced-length-f1": 0.0144,
+        "point-wise-auprc": 0.1366,
+        "reduced-length-auprc": 0.0097,
+        "event-wise-auprc": 0.0046,
+        "delay-reduced-length-auprc": 0.0046
+      },
+      "display_values": {
+        "point-wise-f1": "0.1915",
+        "reduced-length-f1": "0.0281",
+        "event-wise-f1": "0.0171",
+        "delay-reduced-length-f1": "0.0144",
+        "point-wise-auprc": "0.1366",
+        "reduced-length-auprc": "0.0097",
+        "event-wise-auprc": "0.0046",
+        "delay-reduced-length-auprc": "0.0046"
+      },
+      "display_precision": {
+        "point-wise-f1": 4,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 4,
+        "delay-reduced-length-f1": 4,
+        "point-wise-auprc": 4,
+        "reduced-length-auprc": 4,
+        "event-wise-auprc": 4,
+        "delay-reduced-length-auprc": 4
+      },
+      "missing_values": {
+        "point-wise-f1": null,
+        "reduced-length-f1": null,
+        "event-wise-f1": null,
+        "delay-reduced-length-f1": null,
+        "point-wise-auprc": null,
+        "reduced-length-auprc": null,
+        "event-wise-auprc": null,
+        "delay-reduced-length-auprc": null
+      },
+      "public_precomputed_ranks": {
+        "point-wise-f1": 17,
+        "reduced-length-f1": 17,
+        "event-wise-f1": 17,
+        "delay-reduced-length-f1": 17,
+        "point-wise-auprc": 17,
+        "reduced-length-auprc": 17,
+        "event-wise-auprc": 17,
+        "delay-reduced-length-auprc": 17
+      }
+    },
+    {
+      "method": "SAND",
+      "display_name": "SAND",
+      "website_method_cell": "✨ SAND",
+      "website_row_index": 17,
+      "source": "public_snapshot",
+      "dataset": "AIOPS",
+      "schema": "NAIVE",
+      "status": "published",
+      "metrics": {
+        "point-wise-f1": 0.271,
+        "reduced-length-f1": 0.0674,
+        "event-wise-f1": 0.0397,
+        "delay-reduced-length-f1": 0.0362,
+        "point-wise-auprc": 0.2022,
+        "reduced-length-auprc": 0.0262,
+        "event-wise-auprc": 0.0166,
+        "delay-reduced-length-auprc": 0.0163
+      },
+      "display_values": {
+        "point-wise-f1": "0.271",
+        "reduced-length-f1": "0.0674",
+        "event-wise-f1": "0.0397",
+        "delay-reduced-length-f1": "0.0362",
+        "point-wise-auprc": "0.2022",
+        "reduced-length-auprc": "0.0262",
+        "event-wise-auprc": "0.0166",
+        "delay-reduced-length-auprc": "0.0163"
+      },
+      "display_precision": {
+        "point-wise-f1": 3,
+        "reduced-length-f1": 4,
+        "event-wise-f1": 4,
+        "delay-reduced-length-f1": 4,
+        "point-wise-auprc": 4,
+        "reduced-length-auprc": 4,
+        "event-wise-auprc": 4,
+        "delay-reduced-length-auprc": 4
+      },
+      "missing_values": {
+        "point-wise-f1": null,
+        "reduced-length-f1": null,
+        "event-wise-f1": null,
+        "delay-reduced-length-f1": null,
+        "point-wise-auprc": null,
+        "reduced-length-auprc": null,
+        "event-wise-auprc": null,
+        "delay-reduced-length-auprc": null
+      },
+      "public_precomputed_ranks": {
+        "point-wise-f1": 16,
+        "reduced-length-f1": 16,
+        "event-wise-f1": 16,
+        "delay-reduced-length-f1": 16,
+        "point-wise-auprc": 16,
+        "reduced-length-auprc": 16,
+        "event-wise-auprc": 16,
+        "delay-reduced-length-auprc": 16
+      }
+    }
+  ],
+  "ranking_policy": {
+    "precision_decimals": 4,
+    "rounding": "ROUND_HALF_UP",
+    "ties": "competition rank: 1 + number of strictly greater comparison values",
+    "missing": "retain row, rank=null, sort after available values",
+    "note": "Rank at published four-decimal resolution; retain all raw evaluator and public values separately. Published table # is a fixed row index, not a recomputed metric rank."
+  }
+}
