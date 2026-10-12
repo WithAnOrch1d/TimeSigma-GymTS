@@ -112,7 +112,7 @@ PYTHONPATH=. .venv/bin/python examples/prepare_research.py \
 
 ## 完整实验资产与数据
 
-完整科学资产通过本仓库的 [Releases 页面](https://github.com/WithAnOrch1d/TimeSigma-GymTS/releases)分包分发，不放入Git历史。选择 `core12-assets-20261013` 版本，在 **Assets** 中下载全部分片、`asset-manifest.json` 和 `SHA256SUMS`。该版本仅在全部上传并校验通过后公开；若页面尚未显示该版本，表示资产仍在准备中，可先运行上面的 Memory 示例。
+完整科学资产通过本仓库的 [Releases 页面](https://github.com/WithAnOrch1d/TimeSigma-GymTS/releases)分包分发，不放入Git历史。选择 `core12-assets-20261013` 版本，在 **Assets** 中下载全部分片、`asset-manifest.json` 和 `SHA256SUMS`。代码使用本仓库 `main` 分支；Release自动附带的 `Source code (zip/tar.gz)` 是标签时的源码，不是历史科学资产包。该版本仅在全部上传并校验通过后公开；若页面尚未显示该版本，表示资产仍在准备中，可先运行上面的 Memory 示例。
 
 资产清单摘要见`experiments/asset-release.json`：约62.8GiB，包含9,561 Component、407 ResearchStep、Profiles、关联模型，以及原Research会话和AIOPS计划、分数、评价、冻结源码。原始数据集另外从固定版本获取，须遵循上游使用条款。
 
@@ -219,6 +219,6 @@ cd ..
 .venv/bin/python scripts/check_release.py --output runs/release-check --test
 ```
 
-已验证Python80项、Pi65项、typecheck/build、Memory样例和真实模型资产迁移。服务器真实三Schema及Research上下文prepare、历史HTML重建通过。尚未在此交付版本付费重跑完整LLM→训练→评价链路；MatrixProfile独立环境亦未重新验证。
+已验证Python91项、Pi65项、typecheck/build、Memory样例和真实模型资产迁移。服务器从GitHub独立克隆、全新Python/Node依赖安装和固定数据下载通过；IsolationForest/TODS/NAIVE/0已完成真实训练、fresh-process replay、官方八指标、候选校验、隔离Memory发布和existing skip。共享Component的成员继承已做边界测试，本次没有重新训练共享或GPU任务。服务器真实三Schema及Research上下文prepare、历史HTML重建亦已通过。CPU Agent真实验收完成：TODS/234上由LLM提出AR p=16→4，完成preview、训练、官方八指标、诊断和1条新ResearchStep提交；7次Provider请求、103,577 tokens，达到预定1次实验后正常结束，无未完成项。结果只写隔离验收Memory。这是可运行性检查，不是泛化性能证明。MatrixProfile独立环境未重新验证。
 
 环境、原始数据、大型科学资产和密钥不进入Git。使用者安装环境、提供自己的模型账户；上游代码、数据和字体保留各自来源及许可，本仓库尚未另行指定项目开源许可证。
