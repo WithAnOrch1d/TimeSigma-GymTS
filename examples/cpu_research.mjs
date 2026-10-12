@@ -27,6 +27,9 @@ export function cpuWorker(worker) {
 export async function main(args) {
   if (!args.includes('--execute')) throw new Error('This calls a paid model; pass --execute explicitly');
   process.env.CUDA_VISIBLE_DEVICES = '-1';
+  for (const key of ['OMP_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'MKL_NUM_THREADS', 'NUMBA_NUM_THREADS']) {
+    process.env[key] = '1';
+  }
   const { runResearchCli } = await import('../pi-host/dist/research-cli.js');
   const { runResearchFeedback } = await import('../pi-host/dist/research-feedback.js');
   const { PythonWorkerClient } = await import('../pi-host/dist/python-worker.js');

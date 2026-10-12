@@ -3,11 +3,16 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from pathlib import Path
 import shlex
 import shutil
 import sys
 import subprocess
+
+# Keep cold imports usable on CPU-quota containers; workers bind their own limits.
+for _threads in ('OMP_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'MKL_NUM_THREADS', 'NUMBA_NUM_THREADS'):
+    os.environ.setdefault(_threads, '1')
 
 from timesigma.benchmark.manifest import dataset_provenance
 from timesigma.research.tools import dispatch_research_tool

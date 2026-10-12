@@ -20,6 +20,10 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
+# Keep cold imports usable on CPU-quota containers; workers bind their own limits.
+for _threads in ('OMP_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'MKL_NUM_THREADS', 'NUMBA_NUM_THREADS'):
+    os.environ.setdefault(_threads, '1')
+
 from timesigma.algorithms import EASYTSAD_REVISION, get_method, load_model_artifact
 from timesigma.benchmark.manifest import dataset_provenance
 from timesigma.benchmark.runtime import run_method, seed_runtime
