@@ -67,7 +67,9 @@ runs/demo-001/
 
 ## 完整实验资产与数据
 
-完整科学资产通过GitHub Release分包分发，不放入Git历史。**当前尚未发布资产下载链接。** 资产清单摘要见`experiments/asset-release.json`：约62.8GiB，包含9,561 Component、407 ResearchStep、Profiles、关联模型，以及原Research会话和AIOPS计划、分数、评价、冻结源码。原始数据集另外从固定版本获取，须遵循上游使用条款。
+完整科学资产通过本仓库的 [Releases 页面](https://github.com/WithAnOrch1d/TimeSigma-GymTS/releases)分包分发，不放入Git历史。选择 `core12-assets-20261013` 版本，在 **Assets** 中下载全部分片、`asset-manifest.json` 和 `SHA256SUMS`。该版本仅在全部上传并校验通过后公开；若页面尚未显示该版本，表示资产仍在准备中，可先运行上面的 Memory 示例。
+
+资产清单摘要见`experiments/asset-release.json`：约62.8GiB，包含9,561 Component、407 ResearchStep、Profiles、关联模型，以及原Research会话和AIOPS计划、分数、评价、冻结源码。原始数据集另外从固定版本获取，须遵循上游使用条款。
 
 下载全部分片、`SHA256SUMS`和清单后，在空间充足的实验机器上执行：
 
