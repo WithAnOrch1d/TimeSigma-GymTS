@@ -18,7 +18,7 @@ REVISION = "0c6dfa195a5af8ef75938bc1ca6b870e49c7b14a"
 SOURCE = "https://github.com/CSTCloudOps/datasets.git"
 
 
-def prepare(dataset_source: Path, output: Path) -> dict:
+def prepare(dataset_source: Path, output: Path, *, cpu_only: bool = False) -> dict:
     dataset_source, output = dataset_source.resolve(), output.resolve()
     provenance = dataset_provenance(dataset_source)
     if (provenance["source"] != SOURCE or provenance["revision"] != REVISION
@@ -60,7 +60,10 @@ def prepare(dataset_source: Path, output: Path) -> dict:
         "--session-dir", str(output / "run/sessions"),
         "--repository-root", str(ROOT), "--python", sys.executable,
     ]
-    launch = {"cwd": str(ROOT), "argv": command,
+    if cpu_only:
+        command[2] = str(ROOT / "examples/cpu_research.mjs")
+        command.append("--execute")
+    launch = {"cwd": str(ROOT), "argv": command, "cpu_only": cpu_only,
               "note": "Run explicitly to call the configured Provider and allow at most one experiment."}
     (output / "launch.json").write_text(json.dumps(launch, indent=2) + "\n")
     return {"status": "PREPARED_NOT_STARTED", "scope": str(scope_path),
@@ -73,8 +76,9 @@ def main() -> None:
     parser.add_argument("--dataset-source", type=Path, default=ROOT / "datasets/easytsad")
     parser.add_argument("--output", type=Path, default=ROOT / "runs/demo-001")
     parser.add_argument('--execute', action='store_true', help='After preparation, run the real paid Agent session')
+    parser.add_argument("--cpu-only", action="store_true", help="Acceptance wrapper allows only previewed AR without ensemble/operators")
     args = parser.parse_args()
-    print(json.dumps(prepare(args.dataset_source, args.output), ensure_ascii=False, indent=2))
+    print(json.dumps(prepare(args.dataset_source, args.output, cpu_only=args.cpu_only), ensure_ascii=False, indent=2))
     if args.execute:
         launch = json.loads((args.output.resolve() / 'launch.json').read_text())
         subprocess.run(launch['argv'], cwd=launch['cwd'], check=True)

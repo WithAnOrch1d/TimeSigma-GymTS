@@ -65,6 +65,51 @@ runs/demo-001/
 
 原样例不变。保留失败目录，不通过删除记录重置预算。ResearchStep是科学转移记录，完整对话还需查看`sessions`和Provider事件。
 
+## 接入算法与生成单任务 Component
+
+接入新方法需要开发适配，不能只往Catalog里加名称。可参考仓库已有的`timesigma/algorithms/isolation_forest/`：
+
+1. 固定上游源码/许可和依赖；在`pyproject.toml`声明依赖并同步`uv.lock`，需要特殊Python环境时声明独立runtime。不要提交本机环境。
+2. 实现或复用EasyTSAD `BaseMethod`接口及原生`config.toml`，保留训练、验证、停止和评分语义。禁止把不同curve拼起来伪造共享Schema。
+3. 在`timesigma/algorithms/catalog.py`声明`AlgorithmSpec`：模块、参数约束、Schema资格、原生selection、Artifact类型和score support。资格未完成时保持`agent_available=False`；这不阻止本入口生成审阅候选，但禁止发布。
+4. 按生命周期补齐`algorithms/checkpoint.py`或`artifacts.py`、`benchmark/artifacts.py`、`benchmark/input_contract.py`中实际需要的绑定。现有Artifact类型不足时先解决合同，不能伪装成其他类型。Agent参数空间还涉及`research/pipeline_space.py`、`pipeline.py`和`semantics.py`，须检查方法参数及context-length映射。
+5. 分别验证真实支持的Schema、原生选模、独立进程加载/replay和官方八指标，再审阅开放Agent资格。一个任务通过不代表全部Schema和数据集已完成qualification。
+
+`scripts/build_component.py`提供**一个canonical任务**的顺序执行入口。NAIVE是一条curve；ALL_IN_ONE/ZERO_SHOT是一整个原有dataset planning unit。它从指定的已有Component继承任务，使用新方法的完整官方默认配置及原Memory的seed/revision/split；不自动改默认参数或生成新split。共享Schema必须传入该Schema的真实参考Evidence，样例只有NAIVE。
+
+先创建独立工作Memory并下载TODS；下面的IsolationForest例子生成样例中缺失的Component，不修改附带样例或历史归档：
+
+```bash
+.venv/bin/python scripts/fetch_example_data.py
+mkdir -p runs/component-demo
+cp -a examples/handoff/sample/. runs/component-demo/
+.venv/bin/python scripts/build_component.py \
+  --memory runs/component-demo/agent-memory --data datasets/easytsad \
+  --reference component/AR/naive/TODS/0 --method IsolationForest \
+  --output runs/component-demo/attempt-001
+# 核对dry-run后，用相同参数加 --execute 开始一次native训练。
+.venv/bin/python scripts/build_component.py \
+  --memory runs/component-demo/agent-memory --data datasets/easytsad \
+  --reference component/AR/naive/TODS/0 --method IsolationForest \
+  --output runs/component-demo/attempt-001 --execute
+# ADMISSION_READY后审阅candidate，再显式发布到上述工作Memory。
+.venv/bin/python scripts/build_component.py \
+  --output runs/component-demo/attempt-001 --publish
+```
+
+默认每阶段600秒、4GiB RAM、1 CPU、CPU设备；可在运行前用`--seconds-per-stage`、`--memory-mb`、`--cpu-cores`、`--device cuda`明确设置。保留10GiB磁盘余量。默认不训练；`--execute`执行train→fresh-process replay→官方评价→parser/Artifact校验，生成`candidate/`。`--publish`检查候选完整性后原子发布，沿用原Evidence格式。已有同任务同默认配置且Artifact有效时返回`SKIP_EXISTING`，不重训/覆盖。不同配置占用同一ID时拒绝覆盖。
+
+`plan.json`、阶段日志/资源结果、`replay.json`和`status.json`留在attempt目录，科学分数/评价和必要血缘随candidate保存。失败保留原attempt；修复工程原因后使用新目录，参数和split不应因低分改变。本入口没有批量队列或自动重试，也不代替新算法qualification审阅。不要与其他Memory写入器同时发布。
+
+### 无GPU的真实Agent验收
+
+```bash
+PYTHONPATH=. .venv/bin/python examples/prepare_research.py \
+  --output runs/cpu-agent-001 --cpu-only --execute
+```
+
+仍使用真实Pi/Provider、Memory、preview、训练、评价、ResearchStep提交。这个**验收包装器**只允许经过preview的AR、无ensemble/额外operators的Pipeline进入执行，不改生产Core12 Catalog；LLM自行提出一个受控AR参数/context-length假设。最多1次实验，预算同普通示例。它会调用付费模型。Agent若主动结束或仅复用旧Evidence，不能声称完成了新训练全链路；检查实际`research-run.json`与新ResearchStep。该验收不代表全部Core12或GPU路径已验证。
+
 ## 完整实验资产与数据
 
 完整科学资产通过本仓库的 [Releases 页面](https://github.com/WithAnOrch1d/TimeSigma-GymTS/releases)分包分发，不放入Git历史。选择 `core12-assets-20261013` 版本，在 **Assets** 中下载全部分片、`asset-manifest.json` 和 `SHA256SUMS`。该版本仅在全部上传并校验通过后公开；若页面尚未显示该版本，表示资产仍在准备中，可先运行上面的 Memory 示例。
@@ -152,7 +197,7 @@ Core12：AR、AE、AnomalyTransformer、MatrixProfile、LOF、OCSVM、LSTMADalph
 
 GymTS可将`Describe`映射到Catalog、Schema和工具协议，将`Start`封装为一次`research-cli`调用。记录层读取会话、工具事件、官方评价和Evidence血缘；Python SDK、Gymnasium环境、Simulator、SFT/RL转换和reward尚未实现。
 
-未包含历史批量Component调度器和优化诊断；本流程导入现有Component资产。`third_party`仅保留条件导入所需的小型adapter/runtime定义，不含外部环境，也不启用OmniAnomaly。
+未包含历史批量Component调度器和优化诊断；完整实验可导入现有Component资产，也可用上述单任务入口增量补齐。`third_party`仅保留条件导入所需的小型adapter/runtime定义，不含外部环境，也不启用OmniAnomaly。
 
 ## 路径、结果与验证范围
 
