@@ -20,5 +20,9 @@
   "manifest_bytes": 12905677,
   "components": 9561,
   "research_steps": 407,
-  "release_status": "INVENTORIED_NOT_PACKED_OR_UPLOADED"
+  "release_status": "PUBLISHED",
+  "release_url": "https://github.com/WithAnOrch1d/TimeSigma-GymTS/releases/tag/core12-assets-20261013",
+  "published_at": "2026-10-13T07:51:24Z",
+  "archive_parts": 37,
+  "compressed_bytes": 57616411056
 }
