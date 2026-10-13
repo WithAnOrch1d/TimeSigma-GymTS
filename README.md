@@ -4,6 +4,13 @@ TimeSigma 是基于 Pi 和 EasyTSAD 的时序异常检测 Research Agent。本�
 
 建议先跑不收费的 Memory 示例，再运行单任务 Agent；完整实验使用独立发布的历史资产。所有操作均从仓库根目录执行。
 
+## 先理解架构，再运行当前版本
+
+- **理解架构与研究流程**：阅读 [V1 历史架构与实验报告](docs/demo/TimeSigma_V1_Research_Dossier.html)，了解 Pi、TimeSigma、EasyTSAD 的分工、Evidence、工具调用和研究树。报告对应六方法的 V1，算法数量、实验成绩与未来计划保留当时状态；其中排行榜链接指向配套的 V1 历史结果。
+- **查看当前交付版本的实验结果**：阅读 [Core12 三 Schema 历史排行榜](docs/demo/historical-Core12-Leaderboard-3Schema.html)。本仓库交付 Core12；运行方式、支持范围与验收边界以本 README 和当前 Catalog 为准。
+
+HTML 在 GitHub 文件页可能显示源码；克隆仓库后用浏览器打开对应文件即可，页面可离线阅读。V1 与 Core12 的结果分别保留，历史成绩不保证在新硬件或新模型会话中完全复现。
+
 ## 安装环境
 
 建议 Linux/WSL、Python 3.12.3、Node.js ≥22.19.0、Git 和 uv。环境由使用者安装，不随仓库分发。
@@ -37,7 +44,7 @@ PYTHONPATH=. CUDA_VISIBLE_DEVICES='' .venv/bin/python -B examples/handoff/inspec
 
 `examples/handoff/sample/`附带约212KiB真实数据：AR/OCSVM在TODS/0、234的4个Component，AR/234的2个ResearchStep，相关模型和15条TODS Profile。比较表中未附带的LOF记录保持`missing`，不视为零分。样例的manifest保留原六数据集声明，但只有这6条Evidence；它不是完整Memory，也不应回写原始科学资产。来源和文件校验见`examples/handoff/sample-source.json`。Artifact加载检查不等于数值replay，指标和解释均为原历史记录。
 
-## 跑一次真实 Agent 实验
+## 跑一次真实 Agent 实验（通用 Core12 入口）
 
 将 `pi-host/.env.example` 复制为 `pi-host/.env`，填写自己的Provider、模型ID和API key。支持现有OpenAI/DeepSeek接口，模型ID须使用账户当前可用的值；不要提交真实`.env`。
 
@@ -49,7 +56,26 @@ PYTHONPATH=. .venv/bin/python examples/prepare_research.py \
 
 数据脚本从固定上游revision下载TODS，实验执行时不临时获取数据。示例为 `TODS/234/NAIVE`：最多1次实验、1200秒、24次Provider请求、200,000 tokens。`--execute`会调用付费模型并可能训练；省略它只准备scope、上下文和启动命令。若已准备目录，执行打印的启动命令，不要再次prepare到同一路径。
 
-Agent仍可选择Core12方法，不能假定小型Memory会将其限制为CPU算法；需要备好所选方法的GPU/MatrixProfile运行环境。Agent也可能不提出新实验，或实验没有提升，检查实际记录而非只看进程退出码。
+这个通用入口没有CPU算法限制，Agent可选择Core12中符合当前Schema的方法。需要备好所选方法的GPU/MatrixProfile运行环境；小型Memory不会将Agent限制为CPU算法。Agent也可能不提出新实验，或实验没有提升，检查实际记录而非只看进程退出码。
+
+### CPU / GPU 如何选择
+
+| 场景 | 使用方式 |
+|---|---|
+| 正常 Core12 Agent 实验 | 使用上述通用入口，不加 `--cpu-only`；检测器沿用各自原生设备行为与Runtime要求。 |
+| 使用指定 GPU | 配好NVIDIA驱动与CUDA兼容PyTorch，可在同一命令前设置 `CUDA_VISIBLE_DEVICES=0`；这只指定可见设备，不强制CPU方法转为GPU方法。 |
+| 无GPU，先验证真实Agent链路 | 使用下方 `--cpu-only` 示例，仅允许AR受控实验。 |
+| 生成单任务 Component | 使用后文 `scripts/build_component.py`；默认CPU，GPU执行显式传 `--device cuda`。 |
+
+例如在有GPU的机器上运行同一个Agent入口：
+
+```bash
+CUDA_VISIBLE_DEVICES=0 .venv/bin/python -c "import torch; assert torch.cuda.is_available(), 'CUDA unavailable'; print(torch.cuda.get_device_name(0))"
+CUDA_VISIBLE_DEVICES=0 PYTHONPATH=. .venv/bin/python examples/prepare_research.py \
+  --output runs/gpu-agent-001 --execute
+```
+
+该命令仍由Agent规划方法，不保证一定选择GPU检测器。完整Research和三Schema AIOPS也使用正常Core12执行路径，见后文；本次交付重新验收的是CPU链路，不代表全部GPU方法已在新环境实测。
 
 ```text
 runs/demo-001/
@@ -64,6 +90,17 @@ runs/demo-001/
 ```
 
 原样例不变。保留失败目录，不通过删除记录重置预算。ResearchStep是科学转移记录，完整对话还需查看`sessions`和Provider事件。
+
+### 无GPU时：可选的CPU验收示例
+
+```bash
+PYTHONPATH=. .venv/bin/python examples/prepare_research.py \
+  --output runs/cpu-agent-001 --cpu-only --execute
+```
+
+仍使用真实Pi/Provider、Memory、preview、训练、评价、ResearchStep提交。这个**验收包装器**只允许经过preview的AR、无ensemble/额外operators的Pipeline进入执行，不改生产Core12 Catalog；LLM自行提出一个受控AR参数/context-length假设。最多1次实验，预算同普通示例。它会调用付费模型。Agent若主动结束或仅复用旧Evidence，不能声称完成了新训练全链路；检查实际`research-run.json`与新ResearchStep。该验收不代表全部Core12或GPU路径已验证。
+
+`--cpu-only`只定义在`examples/prepare_research.py`，通过`examples/cpu_research.mjs`包装现有Agent；它不是生产Research CLI的通用设备开关，也不会修改Core12 Catalog。
 
 ## 接入算法与生成单任务 Component
 
@@ -100,15 +137,6 @@ cp -a examples/handoff/sample/. runs/component-demo/
 默认每阶段600秒、4GiB RAM、1 CPU、CPU设备；可在运行前用`--seconds-per-stage`、`--memory-mb`、`--cpu-cores`、`--device cuda`明确设置。保留10GiB磁盘余量。默认不训练；`--execute`执行train→fresh-process replay→官方评价→parser/Artifact校验，生成`candidate/`。`--publish`检查候选完整性后原子发布，沿用原Evidence格式。已有同任务同默认配置且Artifact有效时返回`SKIP_EXISTING`，不重训/覆盖。不同配置占用同一ID时拒绝覆盖。
 
 `plan.json`、阶段日志/资源结果、`replay.json`和`status.json`留在attempt目录，科学分数/评价和必要血缘随candidate保存。失败保留原attempt；修复工程原因后使用新目录，参数和split不应因低分改变。本入口没有批量队列或自动重试，也不代替新算法qualification审阅。不要与其他Memory写入器同时发布。
-
-### 无GPU的真实Agent验收
-
-```bash
-PYTHONPATH=. .venv/bin/python examples/prepare_research.py \
-  --output runs/cpu-agent-001 --cpu-only --execute
-```
-
-仍使用真实Pi/Provider、Memory、preview、训练、评价、ResearchStep提交。这个**验收包装器**只允许经过preview的AR、无ensemble/额外operators的Pipeline进入执行，不改生产Core12 Catalog；LLM自行提出一个受控AR参数/context-length假设。最多1次实验，预算同普通示例。它会调用付费模型。Agent若主动结束或仅复用旧Evidence，不能声称完成了新训练全链路；检查实际`research-run.json`与新ResearchStep。该验收不代表全部Core12或GPU路径已验证。
 
 ## 完整实验资产与数据
 
